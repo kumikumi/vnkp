@@ -1,26 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import "./App.css"
+import { Level1To3 } from "./Level1To3"
+import { ScoreAndLevel, ScoreAndLevelContext } from "./ScoreAndLevelContext"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const App = () => {
+	const scoreAndLevelState = React.useState<ScoreAndLevel>([0, 1])
+
+	return (
+		<ScoreAndLevelContext.Provider value={scoreAndLevelState}>
+			<Level1To3 />
+		</ScoreAndLevelContext.Provider>
+	)
 }
-
-export default App;
